@@ -1,0 +1,6 @@
+[servidorweb]
+servidorapache ansible_ssh_host=192.168.122.101 ansible_ssh_private_key_file=".vagrant/machines/servidorapache/lxc/private_key" 
+
+[servidorbd]
+servidormysql ansible_ssh_host=192.168.122.102 ansible_ssh_private_key_file=".vagrant/machines/servidormysql/lxc/private_key"
+

@@ -1,0 +1,17 @@
+- name: instalar apache y php
+  apt: 
+    pkg:
+    - apache2
+    - libapache2-mod-php7.3
+    - php7.3
+    - php7.3-mysql
+
+- name: borrar index.html por defecto
+  shell:
+    cmd: rm -rf /var/www/html/*
+  notify:
+  - restart apache2
+
+
+
+

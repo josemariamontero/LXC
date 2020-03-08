@@ -1,0 +1,15 @@
+- hosts: all
+  become: true
+  roles:
+   - role: commons
+
+- hosts: servidormysql
+  become: true
+  roles:
+   - role: mysql
+
+- hosts: servidorapache
+  become: true
+  roles:
+   - role: apache2
+   - role: wordpress

@@ -1,0 +1,26 @@
+- name: instalar mariadb
+  apt:
+    pkg:
+      - mariadb-server-10.3
+      - python-mysqldb
+    state: latest
+
+- name: crear base de datos
+  mysql_db:
+    name: wordpress
+    state: present
+
+- name: creacion de usuario,contraseña y asignación de privilegios
+  mysql_user:
+    name=wordpress
+    password=wordpress
+    priv='wordpress.*:ALL,GRANT'
+    host='%'
+    state=present
+
+- name: fichero de configuracion
+  copy: >
+    src=50-server.cnf
+    dest=/etc/mysql/mariadb.conf.d/50-server.cnf
+  notify:
+  - restart mariadb
